@@ -1,10 +1,11 @@
 <?php
 namespace App\Repository;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-interface CategoryRepositoryInterface
+interface ProductRepositoryInterface
 {
     /**
     * @return Collection
@@ -29,4 +30,10 @@ interface CategoryRepositoryInterface
     * @return bool
     */
     public function destroy($id): bool;
+
+    /**
+    * @param $id
+    * @return array or bool
+    */
+    public function validate(array $data);
 }

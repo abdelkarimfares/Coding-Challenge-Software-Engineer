@@ -6,6 +6,8 @@ use App\Repository\Eloquent\BaseRepository;
 use App\Repository\Eloquent\CategoryRepository;
 use App\Repository\EloquentRepositoryInterface;
 use App\Repository\CategoryRepositoryInterface;
+use App\Repository\Eloquent\ProductRepository;
+use App\Repository\ProductRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class RepositoryServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(EloquentRepositoryInterface::class, BaseRepository::class);
        $this->app->bind(CategoryRepositoryInterface::class, CategoryRepository::class);
+       $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
     }
 
     /**

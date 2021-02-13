@@ -27,7 +27,7 @@ class BaseRepository implements EloquentRepositoryInterface
     *
     * @return Model
     */
-    public function create(array $attributes): Model
+    public function create(array $attributes): ?Model
     {
         return $this->model->create($attributes);
     }
@@ -47,7 +47,6 @@ class BaseRepository implements EloquentRepositoryInterface
     */
     public function destroy($id): bool
     {
-        // echo 'destroy' . $id;
         return $this->model->destroy($id);
     }
 }
