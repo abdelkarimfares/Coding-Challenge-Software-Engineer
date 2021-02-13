@@ -53,14 +53,15 @@ class NewCategory extends Command
         if(empty($proposals) == false){
             array_unshift($proposals, 'Null');
 
-            // Ask to choose parent category
-            $parent_id = $this->choice(
+            // Choose parent category
+            $parent_cat = $this->choice(
                 'Choose parent category?',
                 $proposals,
                 '',
             );
 
-            $parent_id = $parent_id == 0 ? null : $parent_id;
+            // Search for the id of category
+            $parent_id = $parent_cat ? array_search($parent_cat, $proposals, true) : null;
         }
         
         $name = $this->option('name');

@@ -23,4 +23,10 @@ interface CategoryRepositoryInterface
     * @return Model
     */
     public function find($id): ?Model;
+
+    /**
+    * @param $id
+    * @return bool
+    */
+    public function destroy($id): bool;
 }

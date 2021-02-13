@@ -40,4 +40,14 @@ class BaseRepository implements EloquentRepositoryInterface
     {
         return $this->model->find($id);
     }
+    
+    /**
+    * @param $id
+    * @return bool
+    */
+    public function destroy($id): bool
+    {
+        // echo 'destroy' . $id;
+        return $this->model->destroy($id);
+    }
 }
