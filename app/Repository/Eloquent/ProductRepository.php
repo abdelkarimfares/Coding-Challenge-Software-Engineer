@@ -10,6 +10,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
+
 class ProductRepository extends BaseRepository implements ProductRepositoryInterface
 {
 
@@ -92,6 +93,36 @@ class ProductRepository extends BaseRepository implements ProductRepositoryInter
         }
 
         
+    }
+
+    /**
+    * @param $filter
+    * @return Collection
+    */
+    public function search(array $filter): Collection
+    {
+        $query = null;
+
+        if(isset($filter['sort_by']) && $filter['sort_by']){
+
+            $query = Product::orderBy($filter['sort_by']);
+        }
+        else{
+
+            $query = Product::orderBy('id');
+
+        }
+
+        if(isset($filter['category']) && $filter['category']){
+
+            $query = Product::join('product_categories', 'product_categories.product_id', '=', 'products.id')
+                            ->where('product_categories.category_id', $filter['category'])
+                            ->select('products.*');
+        }
+
+
+        return $query->with('categories')->get();
+
     }
    
 }

@@ -1,5 +1,23 @@
 const mix = require('laravel-mix');
 
+/**
+ * Global config
+ */
+mix
+.webpackConfig({
+    devServer: {
+        disableHostCheck: true
+    },
+    resolve: {
+        alias: {
+            '@': __dirname + '/resources/js',
+        },
+    }
+})
+.options({
+    clearConsole: true
+})
+
 /*
  |--------------------------------------------------------------------------
  | Mix Asset Management

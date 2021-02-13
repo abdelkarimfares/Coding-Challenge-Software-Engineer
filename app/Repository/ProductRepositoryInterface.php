@@ -36,4 +36,10 @@ interface ProductRepositoryInterface
     * @return array or bool
     */
     public function validate(array $data);
+
+    /**
+    * @param $filter
+    * @return Collection
+    */
+    public function search(array $filter): Collection;
 }
