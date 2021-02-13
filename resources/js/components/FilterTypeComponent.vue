@@ -15,7 +15,7 @@ export default {
     data(){
         return {
             filters: [
-                    {value: '', text: 'Default'},
+                    {value: '', text: 'Filter by Name Or Price'},
                     {value: 'name', text: 'Name'},
                     {value: 'price', text: 'Price'},
                 ],

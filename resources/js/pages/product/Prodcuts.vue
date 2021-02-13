@@ -6,9 +6,11 @@
                     <div class="col-lg-2">
                         <filter-type />
                     </div>
-                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2">
+                        <filter-by-category />
+                    </div>
                     <div class="col-lg-8">
-                        <button type="button" class="btn btn-primary">New Product</button>
+                        <button type="button" class="btn btn-primary" v-on:click="newProduct">New Product</button>
                     </div>
                 </div>
             </div>
@@ -26,7 +28,9 @@
                     </thead>
                     <tbody>
                         <tr v-for="product in Products" :key="product.id">
-                            <th scope="row">'</th>
+                            <th scope="row">
+                                <thumbnail-product :src="product.image"/>
+                            </th>
                             <td>{{ product.name }}</td>
                             <td>{{ product.price }}</td>
                             <td>{{ product.description }}</td>
@@ -49,10 +53,14 @@
 <script>
 import { mapActions } from 'vuex'
 import FilterTypeComponent from '@/components/FilterTypeComponent.vue'
+import CategoryFilterComponent from '@/components/CategoryFilterComponent.vue'
+import ThumbnailComponent from '@/components/ThumbnailComponent.vue'
 
 export default {
     components: {
-        'filter-type': FilterTypeComponent
+        'filter-type': FilterTypeComponent,
+        'filter-by-category': CategoryFilterComponent,
+        'thumbnail-product': ThumbnailComponent,
     },
     mounted(){
         this.getProducts();
@@ -67,7 +75,12 @@ export default {
     methods: {
         ...mapActions(['getProducts']),
         DeleteProduct(id){
-            console.log(id);
+            if(confirm('Are Sure you want to delete?')){
+                this.$store.dispatch('deleteProduct', id);
+            }
+        },
+        newProduct(){
+            this.$router.push("/products/create")
         }
     }
 }
