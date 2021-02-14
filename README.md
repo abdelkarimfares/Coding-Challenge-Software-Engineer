@@ -60,3 +60,27 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Database name
+coding_chanllenge
+
+## Product Cli Creation or deleting Syntax
+<p>
+product:create --name= product name here --description=product description here --price=product price here --image=product image path here --category=category id here
+</p>
+<p>
+If you want to set a multiple categories just write like this --category=1 --category=2 --category=3 ....
+</p>
+
+<p>
+product:delete --id= product id here
+</p>
+
+## Category Cli Creation or deleting Syntax
+<p>
+category:create --name= category name here // will be ask you to choose the parent category
+</p>
+<p>
+category:delete //will be ask you to choose the category to delete
+</p>
+
