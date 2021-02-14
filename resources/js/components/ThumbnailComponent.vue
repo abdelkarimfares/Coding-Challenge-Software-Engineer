@@ -29,5 +29,6 @@ export default {
         height: 100px;
         overflow: hidden;
         border-radius: 5px;
+        background: #EEE;
     }
 </style>

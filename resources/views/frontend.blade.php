@@ -2,6 +2,6 @@
 
 @section('content')
     <div>
-        vue app
+        Coding chanllenge
     </div>
 @endsection

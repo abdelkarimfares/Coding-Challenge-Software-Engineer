@@ -86,6 +86,13 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+    .table{
+        border: 2px solid #EEE;
+        background: #FFF;
+        box-shadow: 0 0 5px rgba(#000, 0.1);
+        td,th{
+            vertical-align: middle;
+        }
+    }
 </style>
